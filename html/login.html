@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../style/style.css" />
+  </head>
+  <body class="form">
+    <div class="login-container">
+      <h2><img src="../images/telecome.png" width="90px" /></h2>
+      <h2>Connexion</h2>
+      <form id="loginForm" method="POST" name="register" action="login.php">
+        <div class="input-group">
+          <label for="username">Nom d'utilisateur</label>
+          <input type="text" id="username" name="username" />
+        </div>
+        <div class="input-group">
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" name="password" />
+        </div>
+        <div class="input-group">
+          <input type="submit" value="Connexion" />
+        </div>
+      </form>
+      <div id="error-message" class="error-message"></div>
+      <div class="switch">
+        Nouveau utilitsateur ? <a href="signup.html">Sign up</a>
+      </div>
+    </div>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      // Prevent the form from being submitted
+      event.preventDefault();
+
+      // Select the input fields
+      var username = document.getElementById('username');
+      var password = document.getElementById('password');
+
+      // Check if the input fields are empty
+      if (username.value === '') {
+        alert('Please enter your username');
+        return;
+      }
+      if (password.value === '') {
+        alert('Please enter your password');
+        return;
+      }
+
+      // If everything is fine, submit the form
+      event.target.submit();
+    });
+  </script>
+  </body>
+</html>

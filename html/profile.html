@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="../style/style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Profile</h1>
+    </div>
+    <div class="sidenav">
+        <img src="../images/telecome.png" width="100px" />
+        <a href="dashboard.php">Accueil</a>
+        <a href="profile.html">Profil</a>
+        <a href="login.html">Déconnexion</a>
+      </div>
+    <div class="content">
+
+      <h2>Update Information</h2>
+      <form id="updateForm" action="profile.php" method="post">
+        <div class="input-group">
+          <label for="email">New Email</label>
+          <input type="email" id="email" name="email" />
+        </div>
+        <div class="input-group">
+          <label for="password">New Password</label>
+          <input type="password" id="password" name="password" />
+        </div>
+        <div class="input-group">
+          <label for="confirmPassword">Confirm New Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" />
+        </div>
+        <div class="input-group">
+          <input type="submit" value="Update" />
+        </div>
+      </form>
+      <div id="error-message" class="error-message"></div>
+    </div>
+    <script>
+      document.getElementById('updateForm').addEventListener('submit', function(event) {
+        // Prevent the form from being submitted
+        event.preventDefault();
+
+        // Select the input fields
+        var email = document.getElementById('email');
+        var password = document.getElementById('password');
+        var confirmPassword = document.getElementById('confirmPassword');
+
+
+      if (email.value === '') {
+        alert('Please enter your email');
+        return;
+      }
+      if (!email.value.includes('@')) {
+        alert('Please enter a valid email');
+        return;
+      }
+      if (password.value === '') {
+        alert('Please enter your password');
+        return;
+      }
+      if (confirmPassword.value === '') {
+        alert('Please confirm your password');
+        return;
+      }
+
+      // Check if the password and confirm password fields are equal
+      if (password.value !== confirmPassword.value) {
+        alert('The passwords do not match');
+        return;
+      }
+
+        // If everything is fine, submit the form
+        event.target.submit();
+      });
+    </script>
+  </body>
+</html>
